@@ -1,0 +1,107 @@
++*In[14]:*+
+[source, ipython3]
+----
+import csv
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.set(style="darkgrid")
+----
+
+
++*In[15]:*+
+[source, ipython3]
+----
+data_T = pd.read_csv('/Users/bhanuchanderkureti/Bhanu/ITMD_513/Assignments/Seaborn/titanic.csv')
+data_W = pd.read_csv('/Users/bhanuchanderkureti/Bhanu/ITMD_513/Assignments/Seaborn/workerstips.csv')
+data_F = pd.read_csv('/Users/bhanuchanderkureti/Bhanu/ITMD_513/Assignments/Seaborn/flightsData.csv')
+df_T= pd.DataFrame(data_T)
+df_W= pd.DataFrame(data_W)
+df_F= pd.DataFrame(data_F)
+----
+
+
++*In[22]:*+
+[source, ipython3]
+----
+sns.relplot(x="total_bill", y="tip", data=df_W)
+----
+
+
++*Out[22]:*+
+----<seaborn.axisgrid.FacetGrid at 0x1a17b38090>
+![png](output_2_1.png)
+----
+
+
++*In[32]:*+
+[source, ipython3]
+----
+sns.scatterplot(x="total_bill", y="tip", hue="smoker",style ="smoker", size="size", sizes=(10, 300),legend="full", data=df_W)
+----
+
+
++*Out[32]:*+
+----<seaborn.axisgrid.FacetGrid at 0x1a17ecfc50>
+![png](output_3_1.png)
+----
+
+
++*In[26]:*+
+[source, ipython3]
+----
+sns.catplot(x="day", y="tip", kind="bar", data = df_W)
+----
+
+
++*Out[26]:*+
+----<seaborn.axisgrid.FacetGrid at 0x1a17fbc0d0>
+![png](output_4_1.png)
+----
+
+
++*In[34]:*+
+[source, ipython3]
+----
+sns.scatterplot(x="total_bill", y="tip", hue="time",style ="time", size="size", sizes=(10, 300),legend="full", data=df_W)
+----
+
+
++*Out[34]:*+
+----<matplotlib.axes._subplots.AxesSubplot at 0x1a17dba450>
+![png](output_5_1.png)
+----
+
+
++*In[33]:*+
+[source, ipython3]
+----
+sns.lineplot(x="year", y="passengers", hue="month",estimator ="mean", data = df_F)
+----
+
+
++*Out[33]:*+
+----<matplotlib.axes._subplots.AxesSubplot at 0x1a17de5410>
+![png](output_6_1.png)
+----
+
+
++*In[49]:*+
+[source, ipython3]
+----
+sns.catplot(x= "Sex", data = df_T, hue="Pclass", col= "Survived", kind="count", height=4,aspect=.7)
+----
+
+
++*Out[49]:*+
+----<seaborn.axisgrid.FacetGrid at 0x1a17bc0990>
+![png](output_7_1.png)
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
